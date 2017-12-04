@@ -9,6 +9,6 @@ export default DS.Model.extend({
   gender: DS.attr(),
   age: DS.attr(),
   phonenumber: DS.attr(),
-  //cars: DS.hasMany('car'),
+  cars: DS.hasMany('car'),
   //forms: DS.hasMany('form')
 });

@@ -1,6 +1,10 @@
 {{slide-nav signOut="signOut"}}
 <div align="center">
   <h1>Dashboard</h1>
+  <p>{{model.firstname}} {{model.lastname}}</p>
+  {{#each model.cars as |car|}}
+    {{car.carmodel}}
+  {{/each}}
   <div class="links">
   <style type="text/css">
     a:link{ text-decoration:none; background:#d3d3d3; color:black; font-size:170%; width:200px;}

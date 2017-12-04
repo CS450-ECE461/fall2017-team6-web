@@ -106,11 +106,69 @@ export default function() {
           gender: 'Female',
           age: '23',
           phonenumber: '(222)222-2222',
+        },
+        relationships: {
+          cars: {
+            data: [{
+              type: 'car',
+              id: '1',
+              /*
+              attributes: {
+                carmake: 'Toyota',
+                carmodel: 'Land Cruiser',
+                carmiles: '193576',
+                caryear: '1977',
+                carimage: '/assets/images/toyota_land-cruiser_1997.jpg'
+              }
+              */
+            },{
+              type: 'car',
+              id: '2',
+              /*
+              attributes: {
+                carmake: 'Toyota',
+                carmodel: 'Rav 4',
+                carmiles: '156997',
+                caryear: '2007',
+                carimage: '/assets/images/toyota_rav-4_2010.jpg'
+              }
+              */
+            }]
+          }
         }
       }
     }
   });
-
+  this.get('cars/1', function (schema, req) {
+    return {
+      data: {
+        type: 'cars',
+        id: '1',
+        attributes: {
+          carmake: 'Tesla',
+          carmodel: 'Model X',
+          carmiles: '117',
+          caryear: '2017',
+          carimage: '/assets/images/tesla_model-x_2017.jpg'
+        }
+      }
+    }
+  });
+  this.get('cars/2', function (schema, req) {
+    return {
+      data: {
+        type: 'cars',
+        id: '2',
+        attributes: {
+          carmake: 'Toyota',
+          carmodel: 'Rav 4',
+          carmiles: '156997',
+          caryear: '2007',
+          carimage: '/assets/images/toyota_rav-4_2010.jpg'
+        }
+      }
+    }
+  });
   this.urlPrefix = 'http://localhost:5000/gatekeeper';
   this.namespace = '/v1';
 
