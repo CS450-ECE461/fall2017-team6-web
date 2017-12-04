@@ -1,22 +1,17 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   actions: {
-    createAccount () {
-      if(!this.get('acceptTerms')){
-        alert('CheckBox');
-      } else{
-        let {username, password, email} = this.getProperties (['username', 'password', 'email']);
-        let account = this.get ('store').createRecord ('account', {username, password, email});
-        let adapterOptions = {signIn: true};
+    createAccount() {
+      let {email, username, password} = this.getProperties(['email', 'username', 'password']);
+      let account = this.get('store').createRecord('account', {username, password, email});
+      let adapterOptions = {signIn: true};
 
-        account.save ({adapterOptions}).then (account => {
-          //account.save ().then (() => {
-        this.transitionToRoute('dashboard');
-        }).catch (reason => {
-          //alert('Test');
-        });
-      }
+      account.save ({adapterOptions}).then(account => {
+        this.transitionToRoute('');
+      }).catch(reason => {
+        // Display error message to user
+      });
     }
   }
 });

@@ -26,18 +26,17 @@ module.exports = function(environment) {
 
     'ember-cli-google': {
       recaptcha: {
-        siteKey: '6LfEvjgUAAAAAHPTglv4pXbvsaDMRI16Ea_RKmLU'
+        siteKey: '6LfjfDsUAAAAAPO3PEm76Uf3dJE0sM5vZ49CCmHh'
       }
     },
 
-      gatekeeper: {
+    gatekeeper: {
       baseUrl: 'http://localhost:5000/gatekeeper',
-
       tokenOptions: {
-        client_id: 'dummy',
-        client_secret: 'ssshhh'
-      }
-    }
+        client_id: '5a0af85d2c4dc224bc336cd8',
+        client_secret: 'VJ-Fk66vI3Y4MhF9axJTK4VmNJKOU7VRCuphLuAd3MfShwzy4vEIBTsbCPxqq8JeKWHoNWIE9zG54w-UDMDkf3A0KsH4i-W8givlOAWnKS57XuBXOZ9HIiyjM_3puAeN_uXcPLgx0x0M1USXuRa0qXQTirw3EJU_0hdy8QBNXlw'
+      },
+    },
   };
 
   if (environment === 'development') {
@@ -47,6 +46,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
+  ENV['ember-cli-mirage'] = { enabled: false };
+  ENV['ember-cli-google-recaptcha'] = ENV['ember-cli-google'] = { enabled: false };
 
   if (environment === 'test') {
     // Testem prefers this...
@@ -60,7 +61,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    // do nothing
   }
 
   return ENV;

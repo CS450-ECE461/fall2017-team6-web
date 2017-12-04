@@ -1,22 +1,4 @@
-import Ember from 'ember';
+import Gatekeeper from 'ember-cli-gatekeeper';
 
-export default Ember.Controller.extend({
-  actions: {
-    login() {
-      if (this.get('username')=='user') {
-        if (this.get('password')=='pass') {
-          this.transitionToRoute('dashboard');
-        }
-         else {
-           alert('Incorrect password.');
-         }
-      } else {
-        alert('Incorrect username/password combination.');
-      }
-    },
-
-    home() {
-      this.transitionToRoute('');
-    }
-  }
+export default Gatekeeper.SignInController.extend({
 });
