@@ -1,0 +1,9 @@
+#grad {
+
+  background: navy;
+  background: -webkit-linear-gradient(navy, teal);
+  background: -o-linear-gradient(navy, teal);
+  background: -moz-linear-gradient(navy, teal);
+  background: linear-gradient(navy, teal);
+
+}
