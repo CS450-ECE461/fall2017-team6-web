@@ -10,6 +10,9 @@ export default Ember.Controller.extend({
     selectEngine(choice) {
       this.set('selected', choice);
     },
+    goBack (){
+      this.transitionToRoute('diagnostic-pages.cause-speed');
+    },
     nextPage(){
       if (this.get('selected') !== null){
       let paramArr = this.get('param');
@@ -18,6 +21,8 @@ export default Ember.Controller.extend({
         paramArr[2],
         paramArr[3],
         paramArr[4],
+        paramArr[5],
+        paramArr[6],
         this.get('selected')]);
       let param = this.array;
       this.transitionToRoute('diagnostic-pages.cause-driving').then(function(newRoute){

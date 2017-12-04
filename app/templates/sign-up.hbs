@@ -1,42 +1,28 @@
-{{#mdl-layout}}
-  {{#mdl-layout-content}}
 
     <div style="padding: 16px">
-      {{#mdl-form submit=(action "createAccount")}}
 
-        {{mdl-textfield value=username
-                        label="Username"
-                        floatingLabel=true
-                        fullWidth=true
-                        required=true
-                        autocomplete="off"
-                        autocapitalize="none"}}
+      <div class="form-group">
+        {{!--<label>Password</label>--}}
+        {{input type="text" class="form-control" value=username
+        enter="login" placeholder="Username"}}
+      </div>
 
-        {{mdl-textfield value=password
-                        label="Password"
-                        type="password"
-                        floatingLabel=true
-                        fullWidth=true
-                        required=true
-                        autocomplete="off"
-                        autocapitalize="none"}}
+      <div class="form-group">
+        {{!--<label>Password</label>--}}
+        {{input type="text" class="form-control" value=password
+        enter="login" placeholder="Password"}}
+      </div>
 
-        {{mdl-textfield value=email
-                        label="Email address"
-                        floatingLabel=true
-                        fullWidth=true
-                        required=true}}
+      <div class="form-group">
+        {{!--<label>Password</label>--}}
+        {{input type="text" class="form-control" value=email
+        enter="login" placeholder="Email"}}
+      </div>
 
-        {{mdl-checkbox checked=acceptTerms value=acceptTerms label="By creating an account you agree to our Terms of Service and Privacy Policy."}}
+        <button {{action "createAccount"}}>Sign Up</button>
 
-        {{!mdl-submit colored=true type="raised" rippleEffect=true fullWidth=true value="Create my account"}}
-        <button >Sign In</button>
-      {{/mdl-form}}
     </div>
 
     <div class="mdl-typography--text-center">
       {{#link-to "sign-in" class="text-primary-light" replace=true}}Already have an account? Sign in.{{/link-to}}
     </div>
-
-  {{/mdl-layout-content}}
-{{/mdl-layout}}

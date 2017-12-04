@@ -67,7 +67,33 @@ export default function() {
     }
   }
   });
-  
+  this.post ('/forms', function (schema, req) {
+      //if (body.username === 'username') {
+        return {
+          data: {
+            type: 'form',
+            id: '1',
+            attributes: {
+              carimage: req.carimage,
+              carmodel: req.carmodel,
+              carid: req.carid,
+              driving: req.driving,
+              engine: req.engine,
+              fuel: req.fuel,
+              ro: req.ro,
+              speed: req.speed,
+              rpm: req.rpm,
+              temp: req.temp,
+              when: req.when,
+              problem: req.problem,
+              other1: req.other1,
+              other2: req.other2
+          }
+        }
+      }
+    //}
+  });
+
   this.urlPrefix = 'http://localhost:5000/gatekeeper';
   this.namespace = '/v1';
 
@@ -192,11 +218,18 @@ export default function() {
           }
         }
       }
+
       else {
-        return new Response (500, {'Content-Type': 'application/json'}, {
-          errors: {status: 500, message: 'Internal Server Error'}
-        });
+        return {
+          account: {
+            _id: 2,
+            username: 'username',
+            password: 'password',
+            email: 'email'
+          }
+        }
       }
+
     });
   });
 
