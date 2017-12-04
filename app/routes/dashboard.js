@@ -5,6 +5,6 @@ export default Gatekeeper.User.AuthenticatedRoute.extend({
 //export default Ember.Route.extend({
   model () {
     let currentUser = this.get ('currentUser');
-    //return this.get ('store').query ('comments', {user: currentUser.id});
+    return this.get('store').findRecord('user', currentUser.id);
   }
 });

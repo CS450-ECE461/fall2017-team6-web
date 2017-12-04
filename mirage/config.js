@@ -44,7 +44,7 @@ export default function() {
       }]
     };
   });
-
+/*
   this.get('/forms/1', function () {
   return {
     data: {
@@ -67,6 +67,7 @@ export default function() {
     }
   }
   });
+  */
   this.post ('/forms', function (schema, req) {
       //if (body.username === 'username') {
         return {
@@ -92,6 +93,22 @@ export default function() {
         }
       }
     //}
+  });
+  this.get('users/:id', function (schema, req) {
+    return {
+      data: {
+        type: 'user',
+        id: '1',
+        attributes: {
+          firstname: 'Katie',
+          lastname: 'Smith',
+          email: 'katie.smith@email.com',
+          gender: 'Female',
+          age: '23',
+          phonenumber: '(222)222-2222',
+        }
+      }
+    }
   });
 
   this.urlPrefix = 'http://localhost:5000/gatekeeper';

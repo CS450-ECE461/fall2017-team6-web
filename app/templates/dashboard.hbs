@@ -1,4 +1,4 @@
-{{slide-nav}}
+{{slide-nav signOut="signOut"}}
 <div align="center">
   <h1>Dashboard</h1>
   <div class="links">
@@ -36,16 +36,5 @@
     {{/link-to}}
     <button {{action "signOut"}}>Sign Out</button>
     <br />
-    {{#each model as |account|}}
-      <div>
-        <p>{{account.username}}</p>
-      </div>
-      <div>
-        <p>{{account.email}}</p>
-      </div>
-      <div>
-
-      </div>
-    {{/each}}
   </div>
 </div>

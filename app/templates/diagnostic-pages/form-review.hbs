@@ -1,16 +1,4 @@
-<div class="backButton">
-  <style>
-    p.padding {
-      padding-left: 5mm;
-    }
-  </style>
-  <div align="left">
-    <a {{action 'goBack'}}>
-    <p class="padding"><img src="/assets/images/BackArrow.png" alt=""
-      style="width:10px;height:17px;"></p>
-    </a>
-  </div>
-</div>
+{{back-button goBack="goBack"}}
 <div class="body" style="width:350px;hieght:150px;">
   <h1>Diagnostic Form Review</h1>
   <img src={{model.carimage}} style="width:153px;hieght:150px;">
