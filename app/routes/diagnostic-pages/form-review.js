@@ -1,30 +1,9 @@
-import Ember from 'ember';
+//import Ember from 'ember';
+import Gatekeeper from 'ember-cli-gatekeeper';
 
-export default Ember.Route.extend({
-  array: [],
-  beforeModel() {
-    Ember.run.later((function() {
-//do something in here that will run in 2 seconds
-}), 2000);
-  },
+export default Gatekeeper.User.AuthenticatedRoute.extend({
+//export default Ember.Route.extend({
   model() {
-    /*
-    let form = { carmodel: '',
-      carimage: '',
-      carid: '',
-      driving: '',
-      engine: '',
-      fuel: '',
-      ro: '',
-      speed: '',
-      rpm: '',
-      temp: '',
-      when: '',
-      problem: '',
-      other1: '',
-      other2: ''};
-    return form;
-    */
-    return this.get('store').findRecord('form', 1);
+    return this.controllerFor('diagnostic-pages.cause-media').get('form');
   },
 });

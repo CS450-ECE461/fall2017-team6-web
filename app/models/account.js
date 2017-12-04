@@ -5,4 +5,11 @@ export default DS.Model.extend({
   username: DS.attr(),
   password: DS.attr(),
   email:  DS.attr()
+/*
+  carmake: DS.attr(),
+  carmodel: DS.attr(),
+  carmiles: DS.attr(),
+  caryear: DS.attr(),
+  carimage: DS.attr(),
+  */
 });
