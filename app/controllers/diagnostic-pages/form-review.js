@@ -3,6 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   array: [],
   actions: {
+    goBack (){
+      this.transitionToRoute('diagnostic-pages.cause-media');
+    },
     prevParam() {
       let paramArr = this.get('param');
         this.set('model.carimage', '/assets/images/toyota_rav-4_2010.jpg');

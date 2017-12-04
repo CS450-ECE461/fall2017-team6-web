@@ -1,3 +1,16 @@
+<div class="backButton">
+  <style>
+    p.padding {
+      padding-left: 5mm;
+    }
+  </style>
+  <div align="left">
+    <a {{action 'goBack'}}>
+    <p class="padding"><img src="/assets/images/BackArrow.png" alt=""
+      style="width:10px;height:17px;"></p>
+    </a>
+  </div>
+</div>
 <h1>When does it happen?</h1>
 <h2>When the weather is: </h2>
 <div class="selections">
@@ -10,7 +23,7 @@
 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
   <input type="radio" id="option-2" class="mdl-radio__button" name="weatherOptions" value="Cood or Cold (below 70°)"
     onchange={{action 'selectWeather' value="target.value"}}>
-    <span>Cood or Cold (below 70°)</span>
+    <span>Cool or Cold (below 70°)</span>
 </label>
 <br>
 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">

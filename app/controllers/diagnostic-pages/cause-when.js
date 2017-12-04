@@ -11,6 +11,9 @@ export default Ember.Controller.extend({
     selectWhen(choice) {
       this.set('selected', choice);
     },
+    goBack (){
+      this.transitionToRoute('diagnostic-pages.cause-fuel');
+    },
     nextPage(){
       if (this.get('selected') !== null){
       this.set('optional', this.get('option'));
@@ -25,6 +28,8 @@ export default Ember.Controller.extend({
         paramArr[7],
         paramArr[8],
         paramArr[9],
+        paramArr[10],
+        paramArr[11],
         this.get('selected'),
         this.get('optional')]);
       let param = this.array;
