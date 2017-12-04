@@ -1,39 +1,36 @@
 {{slide-nav}}
+<style>
+  a:link {
+    text-decoration: none;
+    /*background: #d3d3d3;*/
+    color: black;
+    font-size: 170%;
+    width: 200px;
+  }
+</style>
 <div align="center">
   <h1>Dashboard</h1>
   <div class="links">
-  <style type="text/css">
-    a:link{ text-decoration:none; background:#d3d3d3; color:black; font-size:170%; width:200px;}
-  </style>
     {{#link-to 'dashboard'}}
-      <body>
-        <a href="#">Recent Activity</a> <br/>
-      </body>
+      <del>Recent Activity</del>
     {{/link-to}}
-
+    <br/>
     {{#link-to 'dashboard'}}
-      <body>
-        <a href="#">My Car</a> <br/>
-      </body>
+      <del>My Car</del>
     {{/link-to}}
-
+    <br/>
     {{#link-to 'mechanic'}}
-      <body>
-        <a href="#">Mechanic Page</a> <br/>
-      </body>
+        Mechanic Page
     {{/link-to}}
-
+    <br/>
     {{#link-to 'diagnostic-pages.begin-page'}}
-      <body>
-        <a href="#">Diagnostic Report</a> <br/>
-      </body>
+      Diagnostic Report
     {{/link-to}}
-
-    {{#link-to 'dashboard'}}
-      <body>
-        <a href="#">Chatbot</a> <br/>
-      </body>
+    <br/>
+    {{#link-to 'chat'}}
+      Chat
     {{/link-to}}
+    <br/>
     <button {{action "signOut"}}>Sign Out</button>
     <br />
     {{#each model as |account|}}
@@ -42,9 +39,6 @@
       </div>
       <div>
         <p>{{account.email}}</p>
-      </div>
-      <div>
-
       </div>
     {{/each}}
   </div>
