@@ -3,19 +3,17 @@
 
 <div class="selections">
   {{#each model as |carUnit|}}
-    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-{{carUnit.carmodel}}">
-      <input type="radio" id="option-{{carUnit.carmodel}}" class="mdl-radio__button" name="carOptions" value="{{carUnit.id}}"
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-{{carUnit.model}}">
+      <input type="radio" id="option-{{carUnit.model}}" class="mdl-radio__button" name="carOptions" value="{{carUnit._id}}"
         onchange={{action 'selectCar' value="target.value"}}>
         {{car-listing car=carUnit}}
     </label>
   {{/each}}
 </div>
+<br />
 <div class="navigation">
   {{#link-to 'dashboard'}}
-  <br/>
-    <a href="#">Back</a>
+    Back
   {{/link-to}}
-
-    <a href="#" {{action "nextPage"}}>Next</a>
-
+  <a href="#" {{action "nextPage"}}>Next</a>
 </div>

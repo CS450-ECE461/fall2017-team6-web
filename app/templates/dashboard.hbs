@@ -5,34 +5,25 @@
     a:link{ text-decoration:none; background:#d3d3d3; color:black; font-size:170%; width:200px;}
   </style>
     {{#link-to 'dashboard'}}
-      <body>
-        <a href="#">Recent Activity</a> <br/>
-      </body>
+      Recent Activity
     {{/link-to}}
-
+    <br />
     {{#link-to 'dashboard'}}
-      <body>
-        <a href="#">My Car</a> <br/>
-      </body>
+      My Car
     {{/link-to}}
-
+    <br />
     {{#link-to 'mechanic'}}
-      <body>
-        <a href="#">Mechanic Page</a> <br/>
-      </body>
+      Mechanic Page
     {{/link-to}}
-
+    <br />
     {{#link-to 'diagnostic-pages.begin-page'}}
-      <body>
-        <a href="#">Diagnostic Report</a> <br/>
-      </body>
+      Diagnostic Report
     {{/link-to}}
-
+    <br />
     {{#link-to 'dashboard'}}
-      <body>
-        <a href="#">Chatbot</a> <br/>
-      </body>
+      Chatbot
     {{/link-to}}
+    <br />
     <button {{action "signOut"}}>Sign Out</button>
     <br />
     {{#each model as |account|}}
