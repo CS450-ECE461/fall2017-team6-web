@@ -31,6 +31,7 @@ Router.map(function() {
   this.route('mechanic');
   this.route('sign-in');
   this.route('sign-up');
+  this.route('chat');
 });
 
 export default Router;
