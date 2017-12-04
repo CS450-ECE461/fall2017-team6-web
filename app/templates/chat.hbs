@@ -1,5 +1,44 @@
+{{slide-nav}}
+<style>
+#output {
+  font-family: monospace;
+  height: 400px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+}
+</style>
 <div align="center">
-<input border="solid" height="120" width="150">
-<br />
-<input border="solid" height="20" width="150">
+  <!-- <input border="solid" height="120" width="150"> -->
+  <div id="output"></div><br />
+  <input id="input" border="solid" height="20" width="150">
 </div>
+<script>
+(function() {
+  let sessionId;
+  function onInputSubmit() {
+    const input = $("#input").val();
+    document.getElementById("output").innerHTML += "(You) " + input + "\n";
+    $("#input").val("").prop("disabled", true);
+    $.get("http://localhost:5000/v1/chat/getMessage", {
+      sessionId, message: input
+    }, data => {
+      document.getElementById("output").innerHTML += "(AutoBot) " + data.response + "\n";
+      $("#output").animate({
+        scrollTop: $("#output").prop("scrollHeight")
+      }, 200);
+      $("#input").prop("disabled", false).focus();
+    });
+  }
+
+  $(document).ready(() => {
+    $("#input").on("keypress", evt => {
+      if (evt.which === 13) onInputSubmit();
+    })
+    $.get("http://localhost:5000/v1/chat/initSession", data => {
+      sessionId = data.sessionId;
+    }, "json");
+  });
+})();
+</script>
