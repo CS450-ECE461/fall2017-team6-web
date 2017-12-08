@@ -2,43 +2,66 @@
 <style>
 #output {
   font-family: monospace;
-  height: 400px;
-  max-height: 400px;
+  white-space: pre-wrap;
   overflow-y: scroll;
   overflow-x: hidden;
-  white-space: pre-wrap;
+  height: 400px;
+  max-height: 400px;
 }
 </style>
 <div align="center">
-  <!-- <input border="solid" height="120" width="150"> -->
-  <div id="output"></div><br />
-  <input id="input" border="solid" height="20" width="150">
+  <div id="output"></div>
+  <input id="input" border="solid" height="20" width="150" />
 </div>
 <script>
-(function() {
-  let sessionId;
-  function onInputSubmit() {
-    const input = $("#input").val();
-    document.getElementById("output").innerHTML += "(You) " + input + "\n";
-    $("#input").val("").prop("disabled", true);
-    $.get("http://localhost:5000/v1/chat/getMessage", {
-      sessionId, message: input
-    }, data => {
-      document.getElementById("output").innerHTML += "(AutoBot) " + data.response + "\n";
-      $("#output").animate({
-        scrollTop: $("#output").prop("scrollHeight")
-      }, 200);
-      $("#input").prop("disabled", false).focus();
-    });
+class ChatSession {
+  constructor() {
+    this.currentStage = 0;
   }
 
-  $(document).ready(() => {
-    $("#input").on("keypress", evt => {
-      if (evt.which === 13) onInputSubmit();
-    })
-    $.get("http://localhost:5000/v1/chat/initSession", data => {
-      sessionId = data.sessionId;
-    }, "json");
-  });
-})();
+  getResponse(input) {
+    let message = '';
+    if (input.includes('hello')) {
+      return 'Hello! How can I help?';
+    }
+    switch (this.currentStage) {
+      case 1:
+        // get the chars between "the " and " tire"
+        const tire = input.split(' tire')[0].split('the ').slice(-1)[0];
+        message = `Check the ${tire} tire, and see if it’s flat! That could be
+affecting your steering. For more information, look at our tutorial on changing
+a flat tire and purchasing a new spare.//Do you have any other questions, or
+would you like to request an expert?`;
+        this.currentStage = 0;
+        break;
+      case 0:
+        if (input.includes('steer')) {
+          message = `I see there’s a problem with your steering.
+What does the tire pressure read on your dashboard?`;
+          break;
+        }
+      default: message = `I'm not quite sure what you mean. Could you try to
+rephrase, please?`; this.currentStage--;
+    }
+    this.currentStage++;
+    return message.replace(/\n/g, ' ').replace(/\/\//g, '\n');
+  }
+}
+
+const chatSession = new ChatSession();
+
+function onInputSubmit() {
+  const input = $("#input").val();
+  document.getElementById("output").innerHTML += "(You) " + input + "\n"
+    + "(AutoBot) " + chatSession.getResponse(input.toLowerCase()) + "\n";
+  $("#output").animate({
+    scrollTop: $("#output").prop("scrollHeight")
+  }, 200);
+  $("#input").val("").focus();
+}
+$(document).ready(() => {
+  $("#input").on("keypress", evt => {
+    if (evt.which === 13) onInputSubmit();
+  }).focus();
+});
 </script>

@@ -1,30 +1,36 @@
 {{slide-nav}}
+<style>
+  a:link {
+    text-decoration: none;
+    /*background: #d3d3d3;*/
+    color: black;
+    font-size: 170%;
+    width: 200px;
+  }
+</style>
 <div align="center">
   <h1>Dashboard</h1>
   <div class="links">
-  <style type="text/css">
-    a:link{ text-decoration:none; background:#d3d3d3; color:black; font-size:170%; width:200px;}
-  </style>
     {{#link-to 'dashboard'}}
-      Recent Activity
+      <del>Recent Activity</del>
     {{/link-to}}
-    <br />
+    <br/>
     {{#link-to 'dashboard'}}
-      My Car
+      <del>My Car</del>
     {{/link-to}}
-    <br />
+    <br/>
     {{#link-to 'mechanic'}}
-      Mechanic Page
+        Mechanic Page
     {{/link-to}}
-    <br />
+    <br/>
     {{#link-to 'diagnostic-pages.begin-page'}}
       Diagnostic Report
     {{/link-to}}
-    <br />
-    {{#link-to 'dashboard'}}
-      Chatbot
+    <br/>
+    {{#link-to 'chat'}}
+      Chat
     {{/link-to}}
-    <br />
+    <br/>
     <button {{action "signOut"}}>Sign Out</button>
     <br />
     {{#each model as |account|}}
@@ -33,9 +39,6 @@
       </div>
       <div>
         <p>{{account.email}}</p>
-      </div>
-      <div>
-
       </div>
     {{/each}}
   </div>
