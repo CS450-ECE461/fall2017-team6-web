@@ -1,10 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  carmake: DS.attr(),
-  carmodel: DS.attr(),
-  carmiles: DS.attr(),
-  caryear: DS.attr(),
-  carimage: DS.attr(),
+  _id: DS.attr(),
+  model: DS.attr(),
+  make: DS.attr(),
+  miles: DS.attr(),
   user: DS.belongsTo('user')
 });

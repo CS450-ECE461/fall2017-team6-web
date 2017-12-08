@@ -1,15 +1,15 @@
 <div class="body" style="width:290px;hieght:150px;">
   <div class="Logo">
-  <a {{action 'home'}} class="image">
-    <img src="/assets/images/SignIn_Logo.png" alt="" style="width:184px;height:49px;">
-  </a>
+    <a {{action 'home'}} class="image">
+      <img src="/assets/images/SignIn_Logo.png" alt="" style="width:184px;height:49px;">
+    </a>
   </div>
-{{gatekeeper-sign-in-vertical signInComplete=(action "signInComplete")}}
-<div class="container">
-  <p> Don't have an account yet?
-    {{#link-to "signup" class="button"}}
-      Sign Up.
-    {{/link-to}}
-  </p>
+  {{gatekeeper-sign-in-vertical signInComplete=(action "signInComplete")}}
+  <div class="container">
+    <p> Don't have an account yet?
+      {{#link-to "signup" class="button"}}
+        Sign Up.
+      {{/link-to}}
+    </p>
   </div>
 </div>

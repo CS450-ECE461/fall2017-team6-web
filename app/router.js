@@ -28,6 +28,7 @@ Router.map(function() {
     this.route('form-submitted');
     this.route('begin-page');
   });
+  this.route('chat');
   this.route('mechanic');
   this.route('sign-in');
   this.route('sign-up');
